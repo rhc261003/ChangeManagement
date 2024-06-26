@@ -9,7 +9,7 @@ st.title('Change Management')
 uploaded_file = st.file_uploader("Upload your Excel file", type=["xlsx"])
 
 if uploaded_file:
-    cm_data = pd.read_excel(uploaded_file)
+    cm_data = pd.read_excel(uploaded_file, engine='openpyxl')
 
     # Grouping and plotting the number of changes by application
     changes_by_app = cm_data.groupby('Application').size().sort_values(ascending=False)
